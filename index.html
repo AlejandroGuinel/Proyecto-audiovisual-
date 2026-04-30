@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Van A Retar</title>
+    <!-- Importar iconos de FontAwesome para las redes sociales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* =========================================
+           VARIABLES DE COLOR (Modifícalas aquí)
+           ========================================= */
+        :root {
+            --primary-color: #222222; /* Color principal (oscuro) */
+            --accent-color: #e67e22; /* Color de acento (naranja) */
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --bg-light: #f9f9f9;
+        }
+
+        /* =========================================
+           ESTILOS GENERALES
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            background-color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           NAVEGACIÓN Y CABECERA
+           ========================================= */
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* =========================================
+           SECCIÓN HERO (Bienvenida)
+           ========================================= */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1000') center/cover;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        /* =========================================
+           CATÁLOGOS (Fotografía y Podcast)
+           ========================================= */
+        .section-title {
+            text-align: center;
+            padding: 40px 0 20px;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cuadrícula de Fotografía */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .photo-item {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Lista de Podcasts */
+        .podcast-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .podcast-card {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .listen-btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* =========================================
+           BOLETÍN / CORREO ELECTRÓNICO
+           ========================================= */
+        .newsletter {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 40px;
+        }
+
+        .newsletter form {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .newsletter input[type="email"] {
+            padding: 12px;
+            width: 300px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .newsletter button {
+            padding: 12px 25px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .newsletter button:hover {
+            background-color: #d68910;
+        }
+
+        /* =========================================
+           PIE DE PÁGINA Y REDES SOCIALES
+           ========================================= */
+        footer {
+            background-color: #111;
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <a href="#" class="logo">Nos van a retar</a>
+        <nav>
+            <ul>
+                <li><a href="#fotografia">Fotografía</a></li>
+                <li><a href="#podcast">Podcast</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- BIENVENIDA -->
+    <section class="hero">
+        <h1>Dos amigos, cero filtro y mucho sarcasmo</h1>
+    <h2>Porque si no nos retan… no lo estamos haciendo bien 😌🔥</h2>
+        <p>Servicios profesionales de fotografía y producción de podcast</p>
+    </section>
+
+    <!-- CATÁLOGO DE FOTOGRAFÍA -->
+    <section id="fotografia" class="container">
+        <h2 class="section-title">Nuestro Catálogo Fotográfico</h2>
+        <div class="photo-grid">
+            <!-- Cambia las URL de 'src' por tus propias fotos -->
+            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=500" alt="Foto 1" class="photo-item">
+            <img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?w=500" alt="Foto 2" class="photo-item">
+            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=500" alt="Foto 3" class="photo-item">
+        </div>
+    </section>
+
+    <!-- CATÁLOGO DE PODCAST -->
+    <section id="podcast" class="container">
+        <h2 class="section-title">Últimos Episodios de Podcast</h2>
+        <div class="podcast-list">
+            
+            <div class="podcast-card">
+                <div>
+                    <h3>Episodio 1: Nos Van a Retar</h3>
+                    <p>Humor, sarcasmo y conversaciones que probablemente… sí, nos van a retar 😂.</p>
+                </div>
+                <!-- Coloca el enlace a tu Spotify, Apple Podcasts, etc. -->
+                <a href="https://www.youtube.com/watch?v=7XOwCzH_V50&t=4564s" class="listen-btn"><i class="fas fa-play"></i> Escuchar</a>
+            </div>
+
+            <div class="podcast-card">
+                <div>
+                    <h3>Episodio 2: Tragame Tierra</h3>
+                    <p>Este capítulo es de esos que te hacen decir: “ya, pero no digan eso po wn” 😂.</p>
+                </div>
+                <a href="https://www.youtube.com/watch?v=ou3CPQSTVFg&t=3665s" class="listen-btn"><i class="fas fa-play"></i> Escuchar</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CAJA DE CORREO / SUSCRIPCIÓN -->
+    <section id="contacto" class="newsletter">
+        <h2>Únete a nuestra comunidad</h2>
+        <p>Déjanos tu correo electrónico para recibir nuestras ofertas, nuevos episodios y catálogos exclusivos.</p>
+        
+        <!-- El formulario. Aquí puedes integrar servicios como Mailchimp o FormSpree cambiando el 'action' -->
+        <form id="emailForm">
+            <input type="email" id="userEmail" placeholder="Tu correo electrónico" required>
+            <button type="submit">Suscribirme</button>
+        </form>
+    </section>
+
+    <!-- PIE DE PÁGINA (REDES SOCIALES) -->
+    <footer>
+        <div class="social-icons">
+            <!-- Reemplaza el "#" con el enlace real a tus redes -->
+            <a href="#" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+            <a href="https://www.youtube.com/@NosVanaRetarPodcast" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>&copy; 2026 VisualAudio. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE FUNCIONALIDAD BÁSICA -->
+    <script>
+        // Script para manejar la caja de correo electrónico de manera visual
+        document.getElementById('emailForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+            const email = document.getElementById('userEmail').value;
+            
+            // Aquí puedes conectar el envío de correo real. 
+            // Por ahora, mostraremos un mensaje de éxito.
+            alert('¡Gracias por suscribirte con el correo: ' + email + '! Nos pondremos en contacto pronto.');
+            this.reset(); // Limpia el formulario
+        });
+    </script>
+</body>
+</html>
